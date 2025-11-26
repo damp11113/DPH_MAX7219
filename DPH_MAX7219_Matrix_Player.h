@@ -40,6 +40,7 @@ private:
   unsigned long lastUpdate;
   bool isPlaying;
   bool isPaused;
+  bool isAutoClear;
   
   // Playlist
   uint8_t* playlist;
@@ -69,7 +70,8 @@ public:
   void resume();
   void stop();
   bool isAnimationPlaying() const { return isPlaying; }
-  
+  void enableAutoClear(bool enable) { isAutoClear = enable; }
+
   // Animation selection
   void setAnimation(uint8_t animIndex);
   uint8_t getCurrentAnimation() const { return currentAnimation; }

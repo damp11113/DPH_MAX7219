@@ -118,7 +118,10 @@ void MultiAnimationPlayer::resume() {
 void MultiAnimationPlayer::stop() {
   isPlaying = false;
   isPaused = false;
-  display->clear();
+  
+  if (isAutoClear) {
+    display->clear();
+  }
 }
 
 void MultiAnimationPlayer::setAnimation(uint8_t animIndex) {
@@ -127,7 +130,9 @@ void MultiAnimationPlayer::setAnimation(uint8_t animIndex) {
   currentAnimation = animIndex;
   currentFrame = 0;
   dataIndex = 0;
-  display->clear();
+  if (isAutoClear) {
+    display->clear();
+  }
 }
 
 const char* MultiAnimationPlayer::getCurrentAnimationName() const {
